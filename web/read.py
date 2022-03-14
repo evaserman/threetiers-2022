@@ -3,6 +3,7 @@
 # pip install flask-mysql
 
 # imports
+from html.entities import html5
 from flask import Flask
 from flaskext.mysql import MySQL
 
@@ -20,4 +21,18 @@ mysql.init_app(app)
 # ----------------------------------- 
 #           YOUR CODE
 # ----------------------------------- 
+
+@app.route('/colleges')
+def colleges():
+    cursor =mysql.get_db().cursor()
+    response = cursor.execute('SELECT * FROM Colleges')
+    html = ''
+    if response > 0:
+        colleges = cursor.fetchall()
+        for college in colleges:
+            html += college[1] + '<br>'
+        return html
+
+if __name__ == '__main__':
+    app.run(debug=True, port=3000)
 
