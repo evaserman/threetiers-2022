@@ -14,4 +14,14 @@ college = input('Enter College Name:')
 students = input('Enter student Population:')
 
 cursor = cnx.cursor()
-query = ()
+query = (f'INSERT INTO 'Colleges' VALUES (NULL, "{college}", "{students}", NULL, NULL, NULL)')
+
+query = ('SELECT * FROM Colleges')
+cursor.execute(query)
+
+for row in cursor.fetchall():
+    print(row)
+
+cnx.xommit()
+cursor.close()
+cnx.close()
