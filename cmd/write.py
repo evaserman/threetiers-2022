@@ -10,3 +10,8 @@ cnx = mysql.connector.connect(user='root',
 #           YOUR CODE
 # ----------------------------------- 
 
+college = input('Enter College Name:')
+students = input('Enter student Population:')
+
+cursor = cnx.cursor()
+query = ()
