@@ -21,7 +21,7 @@ cnx = mysql.connector.connect(user='root',
 # ----------------------------------- 
 
 cursor = cnx.cursor()
-query = (SELECT * FROM Colleges)
+query = ('SELECT * FROM Colleges')
 cursor.execute(query)
 
 for row in cursor.fetchall():
